@@ -1,5 +1,12 @@
 # Backlog Workspace
 
+Backlog Workspace es una herramienta local para gestionar un backlog de requerimientos escritos en Markdown. La
+aplicación permite navegar los items en vistas de tablero y lista, aplicar filtros por estado, prioridad,
+responsable y etiquetas, y editar tanto el contenido estructurado como los campos rápidos de cada requerimiento.
+También incluye una API local para leer, actualizar y guardar los archivos REQ*.md, validación del formato canonical
+de los items, control de concurrencia para evitar sobrescrituras y soporte para mover elementos entre estados como
+backlog, in progress, testing y completed.
+
 Este repositorio contiene una UI local para explorar y editar un backlog en Markdown.
 
 El backend está preparado para leer archivos `REQ*.md` desde `requirements/req/` en la raíz del workspace. En este checkout esa carpeta puede no estar presente, pero ese es el contrato que usa la aplicación.

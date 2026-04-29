@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #07111f;
+  --foreground: #f4f7fb;
+  --card: rgba(8, 18, 34, 0.88);
+  --card-foreground: #f4f7fb;
+  --muted: rgba(15, 23, 42, 0.72);
+  --muted-foreground: #94a3b8;
+  --border: rgba(148, 163, 184, 0.18);
+  --accent: rgba(15, 23, 42, 0.92);
+  --accent-foreground: #f4f7fb;
+  --primary: #0f766e;
+  --primary-foreground: #ecfeff;
+  --ring: rgba(45, 212, 191, 0.45);
+  --radius: 1.1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Roboto", "Segoe UI", sans-serif;
+    background-image:
+      radial-gradient(circle at top left, rgba(14, 165, 233, 0.13), transparent 34%),
+      radial-gradient(circle at bottom right, rgba(20, 184, 166, 0.14), transparent 32%),
+      linear-gradient(160deg, #07111f 0%, #0b1328 52%, #091223 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Roboto", "Segoe UI", sans-serif;
+  }
+
+  code {
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+  }
+}
+
+@layer components {
+  @media (max-width: 1279px) {
+    .backlog-filters-desktop-toggle,
+    .backlog-filters-desktop-trigger {
+      display: none;
+    }
+
+    .backlog-filters-panel {
+      display: none;
+    }
+
+    .backlog-filters-mobile-trigger-open {
+      display: none;
+    }
+
+    .backlog-filters-mobile-toggle:checked ~ .backlog-filters-panel {
+      display: block;
+    }
+
+    .backlog-filters-mobile-toggle:checked ~ .backlog-filters-mobile-trigger-closed {
+      display: none;
+    }
+
+    .backlog-filters-mobile-toggle:not(:checked) ~ .backlog-filters-mobile-trigger-open {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .backlog-main:has(.backlog-filters-desktop-toggle:not(:checked)) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .backlog-main:has(.backlog-filters-desktop-toggle:checked) {
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .backlog-main {
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .backlog-filters-mobile-toggle,
+    .backlog-filters-mobile-trigger {
+      display: none;
+    }
+
+    .backlog-filters-panel {
+      display: none;
+    }
+
+    .backlog-filters-desktop-trigger-open {
+      display: none;
+    }
+
+    .backlog-filters-desktop-toggle:checked ~ .backlog-filters-panel {
+      display: block;
+    }
+
+    .backlog-filters-desktop-toggle:checked ~ .backlog-filters-desktop-trigger-closed {
+      display: none;
+    }
+
+    .backlog-filters-desktop-toggle:not(:checked) ~ .backlog-filters-desktop-trigger-open {
+      display: none;
+    }
+  }
+}

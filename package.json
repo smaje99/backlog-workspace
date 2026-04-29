@@ -1,0 +1,11 @@
+{
+  "name": "backlog-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.33.1",
+  "scripts": {
+    "dev": "pnpm --filter backlog-ui dev",
+    "build": "pnpm --filter backlog-ui build",
+    "check": "pnpm --filter backlog-ui check",
+    "start": "pnpm --filter backlog-ui start"
+  }
+}
